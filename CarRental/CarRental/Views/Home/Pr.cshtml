@@ -1,0 +1,232 @@
+﻿
+@{
+    ViewBag.Title = "Pr";
+    
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>PR</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        .fone {
+            font-family: 'Thai Sans Lite';
+            font-size: 40px;
+            color: #666666;
+        }
+        .ftwo {
+            font-size: 16px;
+            font-family: 'Thai Sans Lite';
+            padding-left:30px;
+            padding-top:10px;
+            float:left;
+        }
+        .fthree {
+            font-size: 25px;
+            font-family: 'Thai Sans Lite';
+            padding-left: 20px;
+            padding-top: 10px;
+        }
+        .two {
+            border: 1px solid #6FE2B4;
+            padding: 10px 0px 10px 10px;
+            background-color: #6FE2B4;
+        }
+        .three {
+            border: 1px solid #EFEFEF;
+            padding: 15px 0px 15px 15px;
+            background-color: #EFEFEF;
+            padding-left:20px;
+            margin-bottom:10px;
+        }
+        .four {
+            border: 2px solid #EEEEEE;
+            background-color: #F6FDF9;
+            margin:0px 10px 10px 10px;
+        }
+        img.l {
+            width:40px;
+            float:left;
+            margin-top:10px;
+        }
+        img.r {
+            width: 40px;
+            float: right;
+            margin-right:10px;
+            margin-top:10px;
+        }
+        /*.SearchIcon {
+            color: #999999;
+        }
+
+        .SearchButton {
+            background-color: #EFEFEF;
+            border-radius: 1px;
+        }
+
+            .SearchButton:hover {
+                background-color: #EFEFEF;
+            }*/
+
+        .SearchBar {
+            font-family:'Thai Sans Lite';
+        }
+
+       
+
+    </style>
+</head>
+
+
+<body>
+    <div class="two">
+        <img class="l" src="~/image/dollar.png" />
+        <img class="r" src="~/image/cancel-music.png" />
+        <p class="fone">&nbsp;&nbsp; ใบขอสั่งซื้อ</p>
+    </div>
+
+    
+    <div class="three">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="input-group" >
+                    <input type="text" class="form-control SearchBar"  placeholder="เลือกประเภทการสั่งซื้อ" />
+                    <div class="input-group-btn">
+                        <div class="btn-group" role="group">
+                            <div class="dropdown dropdown-lg">
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                <span class="caret"></span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+        </div>
+
+    <div class="four">
+        <p class="fthree">ข้อมูลการสั่งซื้อรถยนต์</p>
+        <table @*class="row"*@ border="1" style="height:50px;">
+            <tr> 
+                <td><p class="ftwo">เลขที่ปิดการขาย&ensp;</p></td>
+                <td style="width:200px" ><input type="text" class="form-control SearchBar"  placeholder="เลือกเลขที่ปิดการขาย"></td>
+                <td class="input-group-btn">
+                    <button class="btn btn-default" type="button"><i class=" glyphicon glyphicon-search"></i></button>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td><p class="ftwo">แผนกผู้ขอ&ensp;</p></td>
+                <td><input type="text" class="form-control SearchBar" placeholder="เลือกแผนก"></td>
+                <td class="input-group-btn">
+                    <button class="btn btn-default" type="button"><i class=" glyphicon glyphicon-search"></i></button>
+                   
+                </td>
+                <td style="width:100px"></td>
+                <td><p class="ftwo">ชื่อผู้ขอ&ensp;</p></td>
+                <td style="width:200px"><input type="text" class="form-control SearchBar" placeholder="เลือกแผนก"></td>
+                <td class="input-group-btn">
+                    <button class="btn btn-default" type="button"><i class=" glyphicon glyphicon-search"></i></button>
+                    
+                </td>
+                <td style="width:100px"></td>
+                <td ><p class="ftwo">วันที่ออกใบขอสั่งซื้อ</p> </td>
+                <td style ="width: 200px; padding-right:10px;">
+                    <form action="/action_page.php">
+                        <input type="date" name="bday" style="width: 200px; height: 30px; ">
+                </td>
+            </tr>
+                
+
+            <tr> 
+                <td><p class="ftwo">ชื่อผู้ขาย&ensp;</p></td>
+                <td><input type="text" class="form-control SearchBar"  placeholder="เลือกชื่อผู้ขาย"></td>   
+                <td class="input-group-btn">
+                    <button class="btn btn-default" type="button"><i class=" glyphicon glyphicon-search"></i></button>
+                  
+                </td>
+                <td style="width:100px"></td>
+                <td><p class="ftwo">สำนักงาน/สาขา&ensp;</p> </td>
+                <td><input type="text" id="disabledInput" class="form-control SearchBar" disabled></td>
+                <td style="width:100px"></td>
+                <td style="width:100px"></td>
+                <td><p class="ftwo">สถานที่จัดส่ง</p> </td>
+                <td >
+                    <select id="typeproduct" name="typeproduct"  >
+                        <option value="tx1">option</option>
+                        <option value="tx2">A-Segment</option>
+                        <option value="tx3">B-Segment</option>
+                        <option value="tx4">C-Segment</option>
+                        <option value="tx5">D-Segment</option>
+                        <option value="tx6">E-Segment</option>
+                        <option value="tx7">F-Segment</option>
+                        <option value="tx8">S-Segment</option>
+                        <option value="tx9">M-Segment</option>
+                        <option value="tx10">J-Segment</option>
+                        <option value="tx11">Pickup</option>
+                    </select>
+                </td>
+           </tr>
+
+            <tr>
+                <td><p class="ftwo">วันที่ต้องการใช้</p></td>
+                <td style="width:200px">
+                    <form action="/action_page.php" >
+                        <input type="date" name="bday" style="width: 200px; height: 30px;">
+                </td>
+            </tr>
+           
+        </table>
+
+        <p class="fthree">รายละเอียดการสั่งซื้อรถยนต์</p>
+        <table border="1" style="height:50px;">
+            <tr>
+                <td><p class="ftwo">ประเภทรถยนต์&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;</p></td>
+                <td style="width:200px">
+                    
+                    <select id="typeproduct" name="typeproduct" style="width: 200px; height:30px;">
+                        <option value="tx1">option</option>
+                        <option value="tx2">A-Segment</option>
+                        <option value="tx3">B-Segment</option>
+                        <option value="tx4">C-Segment</option>
+                        <option value="tx5">D-Segment</option>
+                        <option value="tx6">E-Segment</option>
+                        <option value="tx7">F-Segment</option>
+                        <option value="tx8">S-Segment</option>
+                        <option value="tx9">M-Segment</option>
+                        <option value="tx10">J-Segment</option>
+                        <option value="tx11">Pickup</option>
+                    </select>
+                </td>
+                <td style="width:45px"></td>
+                <td style="width:100px"></td>
+                <td><p class="ftwo">ยี่ห้อ&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;</p></td>
+                <td style="width:200px">
+                    <select id="typeproduct" name="typeproduct" style="width: 200px; height:30px;">
+                        <option value="tx1">option</option>
+                        <option value="tx2">A-Segment</option>
+                        <option value="tx3">B-Segment</option>
+                        <option value="tx4">C-Segment</option>
+                        <option value="tx5">D-Segment</option>
+                        <option value="tx6">E-Segment</option>
+                        <option value="tx7">F-Segment</option>
+                        <option value="tx8">S-Segment</option>
+                        <option value="tx9">M-Segment</option>
+                        <option value="tx10">J-Segment</option>
+                        <option value="tx11">Pickup</option>
+                    </select>
+                </td>
+
+            </tr>
+        </table>
+</div>
+
+
+</body>
+</html>

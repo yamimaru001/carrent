@@ -1,0 +1,112 @@
+﻿@{
+    ViewBag.Title = "Quotation";
+    Layout = "~/Views/Shared/_LayoutBlank.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Quotation</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        .fone {
+            font-family: 'Thai Sans Lite';
+            font-size: 40px;
+            color: #666666;
+        }
+
+        .ftwo {
+            font-size: 20px;
+            font-family: 'Thai Sans Lite';
+            padding-left: 30px;
+            padding-top: 10px;
+            float: left;
+        }
+
+        .fthree {
+            font-size: 25px;
+            font-family: 'Thai Sans Lite';
+            padding-left: 15px;
+            padding-top: 10px;
+        }
+        .one {
+            border: 1px solid #6FE2B4;
+            padding: 10px 0px 10px 10px;
+            background-color: #6FE2B4;
+        }
+
+        .two {
+            border: 1px solid #EFEFEF;
+            padding: 15px 0px 15px 15px;
+            background-color: #EFEFEF;
+            padding-left: 20px;
+            margin-bottom: 10px;
+        }
+
+        .three {
+            border: 2px solid #EEEEEE;
+            background-color: #F6FDF9;
+            margin: 0px 10px 10px 10px;
+            padding: 10px 10px 10px 10px;
+        }
+
+        img.l {
+            width: 40px;
+            float: left;
+            margin-top: 10px;
+        }
+
+        img.r {
+            width: 40px;
+            float: right;
+            margin-right: 10px;
+            margin-top: 10px;
+        }
+        .SearchBar {
+            font-family: 'Thai Sans Lite';
+        }
+    </style>
+</head>
+<body>
+    <div class="one">
+        <img class="l" src="~/Images/file1.png" />
+        <img class="r" src="~/Images/cancel.png" />
+        <p class="fone">&nbsp;&nbsp;สร้าง ใบเสนอราคา</p>
+    </div>
+    <div class="two">
+        <table border="1" height="50px;">
+            <tr>
+                <td><p class="fthree">เลขที่ใบเสนอราคา&ensp;&ensp; </p></td>
+                <td><input type="text" id="disabledInput" class="form-control SearchBar" disabled></td>
+                <td style="width:100px"></td>
+                <td><p class="fthree">เลขที่ใบเสนอราคา&ensp;&ensp; </p></td>
+                <td><input type="text" id="disabledInput" class="form-control SearchBar" disabled></td> 
+            </tr>
+        </table>
+    </div>
+
+    <div class="three">
+        <table border="1">
+            <tr>
+                <td><p class="ftwo">ผุ้เช่า *&ensp;&ensp;</p></td>
+                <td style="width:200px"><input type="text" class="form-control SearchBar" placeholder="เลือกเลขที่ปิดการขาย"></td>
+                <td style="width:45px" class="input-group-btn">
+                    <button class="btn btn-default" type="button"><i class=" glyphicon glyphicon-search"></i></button>
+                </td>
+                <td style="width:100px"></td>
+                <td><p class="ftwo">ประเภทลูกค้า&ensp;&ensp;</p></td>
+                <td><input type="text" id="disabledInput" class="form-control SearchBar" disabled></td>
+
+            </tr>
+        </table>
+
+    </div>
+
+</body>
+
+
+

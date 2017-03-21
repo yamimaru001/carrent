@@ -28,5 +28,17 @@ namespace CarRental.Controllers
 
             return View();
         }
+        public ActionResult Quotation()
+        {
+            ViewBag.Message = "Your Quotation page.";
+
+            return View();
+        }
+        public ActionResult Pr()
+        {
+            ViewBag.Message = "Your Pr page.";
+
+            return View();
+        }
     }
 }
