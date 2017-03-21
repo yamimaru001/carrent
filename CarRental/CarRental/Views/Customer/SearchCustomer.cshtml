@@ -13,6 +13,71 @@
         });
     });
 </script>
-<div class="header">
+<style>
+    .header {
+        text-align: left;
+        font-size: 28px;
+        background-color: #6FE2B4;
+        color: #666666;
+    }
+        .header i {
+            padding: 10px;
+            font-size: 40px;
+            color: #FFFFFF;
+            display: block;
+        }
+    .body button {
+        font-size: 22px;
+        background-color: #A7EFAD;
+        width: 132px;
+        float: right;
+        display: block;
+        margin: 25px;
+        border: 0px;
+    }
+    .body button:hover {
+        background-color: #A7EFAD;
+    }
+    .search {
+        width: 100%;
+    }
+    .searchTable {
+        width: 100%;
+    }
+        .searchTable th, .searchTable td {
+            text-align: center;
+            color: #333333;
+            border: 1px solid #C8C8C8;
+            font-size: 20px;
+            padding: 10px;
+        }
+</style>
+<div class="body">
+    <div class="header">
+        <table style="text-align:center; padding: 25px;" border="0">
+            <tr>
+                <td><i class="material-icons">description</i></td>
+                <td>สมุดรายชื่อ</td>
+            </tr>
+        </table>
+    </div>
+    <button class="btn btn-default">+ สร้างใหม่</button><br><br><br><br>
+    <div class="search">
+        <table class="searchTable" align="center" border="1">
+            <tr style="background-color: #CCCCCC;">
+                <th>ชื่อลูกค้า / ผู้จำหน่าย</th>
+                <th>ชื่อผู้ติดต่อ</th>
+                <th>ประเภท</th>
+                <th>รหัสลูกค้า</th>
+                <th>ดูข้อมูล / แก้ไข</th>
+            </tr>
+            <tr style="background-color: #D6D7DB;">
+                <td style="text-align: left; padding: 0px;">
+                    <input type="text" id="txtName" placeholder="ชื่อลูกค้า / ผู้จำหน่าย" 
+                           style="width: 100%; background-color: #D6D7DB; border:0px; ">
 
+                </td>
+            </tr>
+        </table>
+    </div>
 </div>
