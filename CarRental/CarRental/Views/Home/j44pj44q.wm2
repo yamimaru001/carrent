@@ -1,0 +1,62 @@
+﻿@{
+    ViewBag.Title = "Welcome home bud !";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<script>
+    $(document).ready(function () {
+        while(true){
+            $('#homeicon').css({
+                "background-color": "#6FE2B4",
+                "color": "#FFFFFF"
+            });
+        }
+    });
+</script>
+<style>
+    #intableicon {
+        font-size: 400%;
+        color: #666666;
+    }
+    td {
+        font-size: 30px;
+        padding-left: 80px;
+        padding-right: 80px;
+    }
+    .body a {
+        text-decoration: none;
+    }
+</style>
+<div class="body" style="background-color: #F6FDF9;">
+    <br><br>
+    <table align="center" style="text-align: center;">
+        <tr>
+            <td><a href="#"><i class="material-icons" id="intableicon">description</i></a></td>
+            <td><a href="#"><i class="material-icons" id="intableicon">monetization_on</i></a></td>
+            <td><a href="#"><i class="material-icons" id="intableicon">receipt</i></a></td>
+        </tr>
+        <tr>
+            <td><a href="#">+ ใบเสนอราคา</a></td>
+            <td><a href="#">+ ออกใบวางบิล</a></td>
+            <td><a href="#">+ เปิดใบขอสั่งซื้อ</a></td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+
+        
+        <tr>
+            <td><a href="#"><i class="material-icons" id="intableicon">account_circle</i></a></td>
+            <td><a href="#"><i class="material-icons" id="intableicon">contact_phone    </i></a></td>
+            <td><a href="#"><i class="material-icons" id="intableicon">store</i></a></td>
+        </tr>
+        <tr>
+            <td><a href="#">+เพิ่มบัญชีผู้ใช้งาน</a></td>
+            <td><a href="#">+เพิ่มชื่อลูกค้า</a></td>
+            <td><a href="#">+เพิ่มสินค้า</a></td>
+        </tr>
+    </table>
+    <br><br><br><br><br><br><br>
+</div>

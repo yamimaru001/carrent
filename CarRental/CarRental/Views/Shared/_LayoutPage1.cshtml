@@ -13,15 +13,59 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <title>@ViewBag.Title</title>
     <script>
-        var i = 0;
         $(document).ready(function () {
-            $("#head").click(function () {
+            var i = 0, j = 0;
+            $("#dashboard").click(function () {
                 if (i == 0) {
                     $("#body").css({ "max-height": "100%" });
                     i++;
                 }
                 else $("#body").slideToggle();
             });
+            $("#sales").click(function () {
+                if (j == 0) {
+                    $("#salesbody").css({ "max-height": "100%" });
+                    j++;
+                }
+                else $("#salesbody").slideToggle();
+            });
+            $("ul li a").hover(function () {
+                var id = $(this).attr('id');
+                $(this).css({
+                    "background-color": "#F6FDF9",
+                    "color": "#6FE2B4"
+                });
+                $('#' + id + 'icon').css({
+                    "background-color": "#6FE2B4",
+                    "color": "#FFFFFF"
+                });
+            }, function () {
+                var id = $(this).attr('id');
+                var path = "home";
+                if (id == path) {
+                    $(this).css({
+                        "background-color": "#F6FDF9",
+                        "color": "#6FE2B4"
+                    });
+                    $('#' + id + 'icon').css({
+                        "background-color": "#6FE2B4",
+                        "color": "#FFFFFF"
+                    });
+                }
+                else {
+                    $(this).css({
+                        "background-color": "#F6FDF9",
+                        "color": "#666666"
+                    });
+                    $('#' + id + 'icon').css({
+                        "background-color": "#CCCCCC",
+                        "color": "#666666"
+                    });
+                }
+            });
+        });
+        $('a[href^="#"]').click(function (e) {
+            e.preventDefault();
         });
     </script>
     <style>
@@ -34,7 +78,8 @@
             width: 100%;
             display: block;
             font-size: 26px;
-            
+            height: 70px;
+            line-height: 45px;
         }
         footer {
             font-family: 'Thai Sans Lite';
@@ -53,12 +98,15 @@
         }
         .body {
             width: 76%;
+            border: 1px solid #D9D9D9;
+            text-align: center;
         }
         .container {
             margin-left: 21%;
             background-color: #FBFBFB;
             font-family: 'Thai Sans Lite';
             width: 100%;
+            padding-top: 25px;
         }
         .vertical-menu {
             float: left;
@@ -67,7 +115,7 @@
             width: 20%;
             max-width: 20%;
             margin: 0;
-            padding: 1em;
+            padding: 25px;
         }
         .mainmenu, .submenu {
             list-style: none;
@@ -83,10 +131,6 @@
             display: block;
             text-decoration: none;
         }
-            .vertical-menu a:hover {
-                background-color: #CCCCCC;
-                color: #FFFFFF;
-            }
         .vertical-menu i {
             width: 100%;
             border: 1px solid #D9D9D9;
@@ -97,10 +141,6 @@
             text-decoration: none;
             max-width: 20%;
         }
-            .vertical-menu i:hover {
-                background-color: #6FE2B4;
-                color: #FFFFFF;
-            }
         .submenu {
             overflow: hidden;
             max-height: 0;
@@ -113,44 +153,69 @@
                 background-color: #CCCCCC;
                 color: #CCCCCC;
             }
-                .submenu i:hover {
-                    background-color: #6FE2B4;
-                    color: #6FE2B4;
-                }
     </style>
 
 </head>
 <body>
-    <header>&nbsp;&nbsp;<img src="~/Images/carq.png" style="max-height: 50px;max-width: 50px;">&nbsp;CAR RENTAL</header>
+    <header>
+        &nbsp;&nbsp;
+        <img src="~/Images/carq.png" style="max-height: 50px;max-width: 50px; float: left;">
+        &nbsp;CAR RENTAL
+    </header>
 
     <div class="column vertical-menu">
         <ul class="mainmenu">
 
-            <li><a href="#"><i class="material-icons">home</i>&nbsp;&nbsp;&nbsp;&nbsp;หน้าแรก</a></li>
+            <li><a href="#" id="home"><i class="material-icons" id="homeicon">home</i>&nbsp;&nbsp;&nbsp;&nbsp;หน้าแรก</a></li>
 
-            <li class="parent">
-                <a id="head"><i class="material-icons">grade</i>&nbsp;&nbsp;&nbsp;&nbsp;ภาพรวม</a>
+            <li>
+                <a href="javascript:void(0);" id="dashboard"><i class="material-icons" id="dashboardicon">grade</i>&nbsp;&nbsp;&nbsp;&nbsp;ภาพรวม</a>
                 <ul id="body" class="submenu">
                     <li>
-                        <a href="#"><i class="material-icons">grade</i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;แดชบอร์ด</a>
+                        <a href="#"><i class="material-icons">&nbsp;</i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;แดชบอร์ด</a>
                     </li>
                     <li>
-                        <a href="#"><i class="material-icons">grade</i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;โปรโมชัน</a>
+                        <a href="#"><i class="material-icons">&nbsp;</i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;โปรโมชัน</a>
                     </li>
                 </ul>
-            </li>
+            </li> @*dashboard*@
 
-            <li><a href="#"><i class="material-icons">monetization_on</i>&nbsp;&nbsp;&nbsp;&nbsp;ขาย</a></li>
+            <li><a href="javascript:void(0);" id="sales"><i class="material-icons" id="salesicon">monetization_on</i>&nbsp;&nbsp;&nbsp;&nbsp;ขาย</a>
+                <ul id="salesbody" class="submenu">
+                    <li>
+                        <a><i class="material-icons">&nbsp;</i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ระยะสั้น</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="material-icons">&nbsp;</i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ใบเสนอราคา</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="material-icons">&nbsp;</i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ใบจอง</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="material-icons">&nbsp;</i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;สัญญาการเช่า</a>
+                    </li>
+                </ul>
+            </li> @*sales*@
 
-            <li><a href="#"><i class="material-icons">shopping_cart</i>&nbsp;&nbsp;&nbsp;&nbsp;ซื้อ</a></li>
+            <li><a href="#" id="purchase"><i class="material-icons" id="purchaseicon">shopping_cart</i>&nbsp;&nbsp;&nbsp;&nbsp;ซื้อ</a></li>
 
-            <li><a href="#"><i class="material-icons">credit_card</i>&nbsp;&nbsp;&nbsp;&nbsp;บัญชี</a></li>
+            <li><a href="#" id="account"><i class="material-icons" id="accounticon">credit_card</i>&nbsp;&nbsp;&nbsp;&nbsp;บัญชี</a></li>
 
-            <li><a href="#"><i class="material-icons">store</i>&nbsp;&nbsp;&nbsp;&nbsp;สินค้า</a></li>
+            <li><a href="#" id="product"><i class="material-icons" id="producticon">store</i>&nbsp;&nbsp;&nbsp;&nbsp;สินค้า</a></li>
 
-            <li><a href="#"><i class="material-icons">contact_phone</i>&nbsp;&nbsp;&nbsp;&nbsp;สมุดรายชื่อ</a></li>
+            <li><a href="#" id="customer"><i class="material-icons" id="customericon">contact_phone</i>&nbsp;&nbsp;&nbsp;&nbsp;สมุดรายชื่อ</a></li>
 
-            <li><a href="#"><i class="material-icons">account_circle</i>&nbsp;&nbsp;&nbsp;&nbsp;บัญชีผู้ใช้งาน</a></li>
+            <li>
+                <a href="javascript:void(0);" id="customer"><i class="material-icons" id="customericon">monetization_on</i>&nbsp;&nbsp;&nbsp;&nbsp;บัญชีผู้ใช้งาน</a>
+                <ul id="customerbody" class="submenu">
+                    <li>
+                        <a><i class="material-icons">&nbsp;</i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;บัญชีผู้ใช้งาน</a>
+                    </li>
+                    <li>
+                        <a><i class="material-icons">&nbsp;</i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;พนักงาน</a>
+                    </li>
+                </ul>
+            </li> @*customer*@
 
         </ul>
     </div>
@@ -158,6 +223,6 @@
 
         @RenderBody()
     </div>
-    <footer>FOOTER HERE</footer>
+    <footer>&nbsp;</footer>
 </body>
 </html>
