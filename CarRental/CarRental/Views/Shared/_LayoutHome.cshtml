@@ -14,7 +14,7 @@
     <title>@ViewBag.Title</title>
     <script>
         $(document).ready(function () {
-            var i = 0, j = 0;
+            var i = 0, j = 0, k = 0, l = 0;
             $("#dashboard").click(function () {
                 if (i == 0) {
                     $("#body").css({ "max-height": "100%" });
@@ -29,6 +29,20 @@
                 }
                 else $("#salesbody").slideToggle();
             });
+            $("#user").click(function () {
+                if (k == 0) {
+                    $("#userbody").css({ "max-height": "100%" });
+                    k++;
+                }
+                else $("#userbody").slideToggle();
+            });
+            $(".short").click(function () {
+                if (l == 0) {
+                    $(".shortbody").css({ "max-height": "100%" });
+                    l++;
+                }
+                else $(".shortbody").slideToggle();
+            });
             $("ul li a").hover(function () {
                 var id = $(this).attr('id');
                 $(this).css({
@@ -41,11 +55,11 @@
                 });
             }, function () {
                 var id = $(this).attr('id');
-                var path = "home";
+                var path = "customer";
                 if (id == path) {
                     $(this).css({
                         "background-color": "#F6FDF9",
-                        "color": "#666666"
+                        "color": "#6FE2B4"
                     });
                     $('#' + id + 'icon').css({
                         "background-color": "#6FE2B4",
@@ -182,16 +196,16 @@
 
             <li><a href="javascript:void(0);" id="sales"><i class="material-icons" id="salesicon">monetization_on</i>&nbsp;&nbsp;&nbsp;&nbsp;ขาย</a>
                 <ul id="salesbody" class="submenu">
-                    <li>
-                        <a><i class="material-icons">&nbsp;</i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ระยะสั้น</a>
+                    <li class="short">
+                        <a href="javascript:void(0);"><i class="material-icons">&nbsp;</i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ระยะสั้น</a>
                     </li>
-                    <li>
+                    <li class="shortbody">
                         <a href="#"><i class="material-icons">&nbsp;</i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ใบเสนอราคา</a>
                     </li>
-                    <li>
+                    <li class="shortbody">
                         <a href="#"><i class="material-icons">&nbsp;</i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ใบจอง</a>
                     </li>
-                    <li>
+                    <li class="shortbody">
                         <a href="#"><i class="material-icons">&nbsp;</i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;สัญญาการเช่า</a>
                     </li>
                 </ul>
@@ -205,7 +219,17 @@
 
             <li><a href="#" id="customer"><i class="material-icons" id="customericon">contact_phone</i>&nbsp;&nbsp;&nbsp;&nbsp;สมุดรายชื่อ</a></li>
 
-            <li><a href="#" id="user"><i class="material-icons" id="usericon">account_circle</i>&nbsp;&nbsp;&nbsp;&nbsp;บัญชีผู้ใช้งาน</a></li>
+            <li>
+                <a href="javascript:void(0);" id="user"><i class="material-icons" id="usericon">account_circle</i>&nbsp;&nbsp;&nbsp;&nbsp;บัญชีผู้ใช้งาน</a>
+                <ul id="userbody" class="submenu">
+                    <li>
+                        <a href="#"><i class="material-icons">&nbsp;</i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;บัญชีผู้ใช้งาน</a>
+                    </li>
+                    <li>
+                        <a href ="#"><i class="material-icons">&nbsp;</i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;พนักงาน</a>
+                    </li>
+                </ul>
+            </li> @*user*@
 
         </ul>
     </div>
