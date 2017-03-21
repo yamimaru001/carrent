@@ -45,7 +45,7 @@
                 if (id == path) {
                     $(this).css({
                         "background-color": "#F6FDF9",
-                        "color": "#6FE2B4"
+                        "color": "#666666"
                     });
                     $('#' + id + 'icon').css({
                         "background-color": "#6FE2B4",
@@ -205,17 +205,7 @@
 
             <li><a href="#" id="customer"><i class="material-icons" id="customericon">contact_phone</i>&nbsp;&nbsp;&nbsp;&nbsp;สมุดรายชื่อ</a></li>
 
-            <li>
-                <a href="javascript:void(0);" id="customer"><i class="material-icons" id="customericon">monetization_on</i>&nbsp;&nbsp;&nbsp;&nbsp;บัญชีผู้ใช้งาน</a>
-                <ul id="customerbody" class="submenu">
-                    <li>
-                        <a><i class="material-icons">&nbsp;</i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;บัญชีผู้ใช้งาน</a>
-                    </li>
-                    <li>
-                        <a><i class="material-icons">&nbsp;</i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;พนักงาน</a>
-                    </li>
-                </ul>
-            </li> @*customer*@
+            <li><a href="#" id="user"><i class="material-icons" id="usericon">account_circle</i>&nbsp;&nbsp;&nbsp;&nbsp;บัญชีผู้ใช้งาน</a></li>
 
         </ul>
     </div>
@@ -223,6 +213,7 @@
 
         @RenderBody()
     </div>
+    <br><br>
     <footer>&nbsp;</footer>
 </body>
 </html>
