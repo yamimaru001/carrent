@@ -311,17 +311,14 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\Shared\_LayoutHome.cshtml" />
     <Content Include="Views\Shared\_HeaderBar.cshtml" />
-<<<<<<< Updated upstream
-=======
-<<<<<<< Updated upstream
+
     <Content Include="Views\Customer\SearchCustomer.cshtml" />
-=======
+
     <Content Include="Views\Shared\_SideNavBar.cshtml" />
     <Content Include="Views\Home\Quotation.cshtml" />
     <Content Include="Views\Home\Pr.cshtml" />
     <Content Include="Views\Shared\_LayoutBlank.cshtml" />
->>>>>>> Stashed changes
->>>>>>> Stashed changes
+
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
