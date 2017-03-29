@@ -1,7 +1,8 @@
 ﻿@{
     ViewBag.Title = "Quotation";
-    Layout = "~/Views/Shared/_LayoutBlank.cshtml";
+    Layout = "~/Views/Shared/_LayoutCreate.cshtml";
 }
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -12,33 +13,48 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
     <style>
-        .fone {
-            font-family: 'Thai Sans Lite';
-            font-size: 40px;
-            color: #666666;
-        }
-
-        .ftwo {
+       
+        .ftwo { 
             font-size: 20px;
             font-family: 'Thai Sans Lite';
-            padding-left: 30px;
+            padding-left: 20px;
             padding-top: 10px;
             float: left;
-        }
+            color: #666666;
+         
+        } 
 
         .fthree {
             font-size: 25px;
             font-family: 'Thai Sans Lite';
-            padding-left: 15px;
+            padding-left: 20px;
             padding-top: 10px;
-        }
-        .one {
-            border: 1px solid #6FE2B4;
-            padding: 10px 0px 10px 10px;
-            background-color: #6FE2B4;
+            margin-top: 5px;
+            color: #666666;
+        } /*หัวข้อ*/
+
+        .ffour {
+            font-size: 20px;           
+            font-family: 'Thai Sans Lite';
+            color: #666666;
+        } /*ตัวอักษรในtextbox*/
+
+        .ffive {
+            font-size: 18px;
+            font-family: 'Thai Sans Lite';
+            padding-bottom:2px;
+            color: #666666;
+        } /*ตัวอักษรใน dropdown*/
+
+        .fstar {
+         font-size: 20px;
+         font-family: 'Thai Sans Lite';
+         color:red;
         }
 
+        
         .two {
             border: 1px solid #EFEFEF;
             padding: 15px 0px 15px 15px;
@@ -51,62 +67,368 @@
             border: 2px solid #EEEEEE;
             background-color: #F6FDF9;
             margin: 0px 10px 10px 10px;
-            padding: 10px 10px 10px 10px;
+            padding: 20px 10px 10px 10px;
         }
+        
 
-        img.l {
-            width: 40px;
-            float: left;
-            margin-top: 10px;
-        }
-
-        img.r {
-            width: 40px;
-            float: right;
-            margin-right: 10px;
-            margin-top: 10px;
-        }
-        .SearchBar {
-            font-family: 'Thai Sans Lite';
+        .btnre {
+            background-color: #F86166;
+            border: 1px solid #FFFFFF;
+            color: white;
+            float: right;       
         }
     </style>
 </head>
-<body>
-    <div class="one">
-        <img class="l" src="~/Images/file1.png" />
-        <img class="r" src="~/Images/cancel.png" />
-        <p class="fone">&nbsp;&nbsp;สร้าง ใบเสนอราคา</p>
-    </div>
+<body>  
     <div class="two">
-        <table border="1" height="50px;">
+        <table border="1" style=" float: left; margin-top: 15px; margin-left: 20px; width:50%">
             <tr>
-                <td><p class="fthree">เลขที่ใบเสนอราคา&ensp;&ensp; </p></td>
-                <td><input type="text" id="disabledInput" class="form-control SearchBar" disabled></td>
-                <td style="width:100px"></td>
-                <td><p class="fthree">เลขที่ใบเสนอราคา&ensp;&ensp; </p></td>
-                <td><input type="text" id="disabledInput" class="form-control SearchBar" disabled></td> 
-            </tr>
-        </table>
-    </div>
-
-    <div class="three">
-        <table border="1">
-            <tr>
-                <td><p class="ftwo">ผุ้เช่า *&ensp;&ensp;</p></td>
-                <td style="width:200px"><input type="text" class="form-control SearchBar" placeholder="เลือกเลขที่ปิดการขาย"></td>
-                <td style="width:45px" class="input-group-btn">
-                    <button class="btn btn-default" type="button"><i class=" glyphicon glyphicon-search"></i></button>
+                <td> <p class="ftwo">เลขที่ใบเสนอราคา&ensp;&ensp; </p></td>
+                <td style="width:150px"><input type="text" id="disabledInput" class="form-control ffour "   disabled></td>
+                <td ></td>
+                <td><p class="ftwo">วันที่เสนอราคา&ensp;&ensp; </p></td>
+                <td style="width: 150px; ">
+                    <form action="/action_page.php">
+                        <input type="date" name="bday" class="form-control ffour " style="width: 100%; height: 35px;  " disabled>
+                    </form>
                 </td>
-                <td style="width:100px"></td>
-                <td><p class="ftwo">ประเภทลูกค้า&ensp;&ensp;</p></td>
-                <td><input type="text" id="disabledInput" class="form-control SearchBar" disabled></td>
-
             </tr>
         </table>
+        <p class="fthree" style="float: left; margin-top: 10px; font-size:25px;">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;จำนวนเงินรวมทั้งสิิ้น&ensp;&ensp;&ensp;&ensp;</p>
+        <img style="width:50px; float:left; margin-top:10px" src="~/Images/thai-baht.png" />
+        <p class="fthree" style="color: #33729E;  font-size:40px">0.00</p>
+   </div>
+        
+    <div class="three">
+        <table border="1"style="width: 95%; margin-left: 25px;">
+            <tr>
+                <td style="width:130px"><p class="ftwo">ผุ้เช่า</p><p class="fstar">*</p></td>               
+                <td style="width:250px" >
+                    <div class="input-group">
+                        <input type="text" class="form-control ffour">
+                        <div class="input-group-btn" >
+                            <button class="btn btn-default"  type="submit">
+                                <i class=" glyphicon glyphicon-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </td>
+                <td ></td>
+                <td style="width:100px"></td>
+                <td style="width:144px"><p class="ftwo">ประเภทลูกค้า</p></td>
+                <td style="width:225px">
+                    <select id="typeproduct" class="form-control ffive" name="typeproduct" style="width: 100%; height: 35px;" disabled>
+                        <option value="tx1">บุคคลธรรมดา</option>
+                        <option value="tx2">นิติบุคคล</option>
+                    </select>
+                </td>
+                <td style="width:70px"></td>
+                <td><p class="ftwo">PID/PASSPORT&ensp;</p></td>
+                <td style="width:200px"><input type="text" id="disabledInput" class="form-control ffour "  disabled></td>
+            </tr>
 
-    </div>
+            <tr>
+                <td><p class="ftwo">ชื่อ-นามสกุล</p></td>
+                <td style="width:200px"><input type="text" id="disabledInput" class="form-control ffour"  disabled></td>
+                <td ></td>
+                <td style="width:100px"></td>
+                <td><p class="ftwo">เพศ</p></td>
+                <td style="width:200px"><input type="text" id="disabledInput" class="form-control ffour "  disabled></td>
+                <td style="width:70px"></td>
+                <td><p class="ftwo">สัญชาติ</p></td>
+                <td style="width:200px"><input type="text" id="disabledInput" class="form-control ffour "  disabled></td>
+
+            </tr>
+
+            <tr>
+                <td><p class="ftwo">ที่อยู่</p></td>
+                <td style="width:200px"><textarea rows="3" id="disabledInput" class="form-control ffour " style=" margin-top:10px; margin-bottom:10px;" disabled></textarea></td>
+                <td ></td>
+                <td style="width:100px"></td>
+                <td style="padding-top:5px"><p class="ftwo">วันเกิด</p> <p class="ftwo">เบอร์โทรศัพท์</p></td>
+                <td style="width:200px"><p><input type="text" id="disabledInput" class="form-control ffour " style=" margin-top:10px" disabled></p><br /><p><input type="text" id="disabledInput" class="form-control "  disabled></p></td>
+                <td style="width:70px"></td>
+                <td style="padding-top:5px"><p class="ftwo">อายุ&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;</p> <p class="ftwo">อีเมล์</p></td>
+                <td style="width:200px"><p><input type="text" id="disabledInput" class="form-control ffour " style=" margin-top:10px" disabled></p><br /><p><input type="text" id="disabledInput" class="form-control " disabled></p></td>
+
+            </tr>
+        </table><br />
+        <p class="fthree " >รายละเอียดการเช่า</p>
+        <table border="1" style="width: 95%;  margin-left: 25px; ">
+            <tr>
+                <td style="width:130px"><p class="ftwo">เลขทะเบียน</p><p class="fstar">*</p></td>               
+                <td style="width:247px">
+                    <div class="input-group">
+                        <input type="text" class="form-control ffour">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" type="submit">
+                                <i class=" glyphicon glyphicon-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </td>
+                <td ></td>
+                <td style="width:100px"></td>
+                <td style="width:144px"><p class="ftwo">หมายเลขตัวถัง</p></td>
+                <td style="width:201px"><input type="text" id="disabledInput" class="form-control ffour "  disabled></td>
+                <td ></td>
+                <td><p class="ftwo">หมายเลขเครื่อง</p></td>
+                <td style="width:200px"><input type="text" id="disabledInput" class="form-control ffour"  disabled></td>
+            </tr>
+
+            <tr>
+                <td><p class="ftwo">รุ่น</p></td>
+                <td style="width:200px"><input type="text" id="disabledInput" class="form-control ffour "  disabled></td>
+                <td ></td>
+                <td style="width:100px"></td>
+                <td><p class="ftwo">เลขไมล์</p></td>
+                <td style="width:200px"><input type="text" id="disabledInput" class="form-control ffour "  disabled></td>
+                <td ></td>
+                <td><p class="ftwo">ปีรถ</p></td>
+                <td style="width:200px"><input type="text" id="disabledInput" class="form-control ffour "  disabled></td>
+            </tr>
+
+            <tr>
+                <td><p class="ftwo">ประเภทสินค้า</p></td>
+                <td style="width:200px"><input type="text" id="disabledInput" class="form-control  ffour"  disabled></td>
+                <td ></td>
+                <td style="width:100px"></td>
+                <td><p class="ftwo">ระดับน้ำมัน</p></td>
+                <td style="width:200px">
+                    <select id="typeproduct" class="form-control ffive" name="typeproduct" style="width: 100%; height: 35px; " disabled>
+                        <option value="tx1">0/10</option>
+                        <option value="tx2">1/10</option>
+                        <option value="tx3">2/10</option>
+                        <option value="tx4">3/10</option>
+                        <option value="tx5">4/10</option>
+                        <option value="tx6">5/10</option>
+                        <option value="tx7">6/10</option>
+                        <option value="tx8">7/10</option>
+                        <option value="tx9">8/10</option>
+                        <option value="tx10">9/10</option>
+                        <option value="tx10">10/10</option>
+                    </select>
+                </td>
+                <td style="width:70px"></td>
+                <td><p class="ftwo">ประเภทเชื้อเพลิง</p></td>
+                <td style="width:200px">
+                    <select id="typeproduct" class="form-control ffive" name="typeproduct" style="width: 100%; height: 35px;" disabled>
+                        <option value="tx1">ดีเซล</option>
+                        <option value="tx2">เบนซิล</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td style="width:130px">
+                    <p class="ftwo">พนักงานขาย</p></td>
+                <td style="width:200px">
+                    <div class="input-group">
+                        <input type="text" class="form-control ffour">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" type="submit">
+                                <i class=" glyphicon glyphicon-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </td>
+                <td ></td>
+                <td style="width:100px"></td>
+                <td style="width:130px"><p class="ftwo">วัน/เวลาที่ส่งรถ</p><p class="fstar">*</p> </td>
+                <td style="width: 200px; ">
+                    <form action="/action_page.php">
+                        <input type="datetime-local" name="bday" class="form-control ffour" style="width: 100%; height: 35px;  "> 
+                    </form>
+                </td>
+                @*<td style="width:100px"></td>               
+                <td><p class="ftwo">เวลาที่ส่งรถ</p><p class="fstar">*</p></td>
+                <td style="width:200px"><input type="text" class="form-control SearchBar ffour" style="width: 85%; float: left; "> <p class="ffour">&ensp;น</p></td>*@
+            </tr>
+
+            <tr>
+                <td><p class="ftwo">สถานที่รับ-ส่งรถ</p></td>
+                <td style="width:200px">
+                    <select id="typeproduct" class="form-control ffive" name="typeproduct" style="width: 100%; height: 35px;" >
+                        <option value="tx1">สาขา 1</option>
+                        <option value="tx2">สาขา 2</option>ฃ
+                        <option value="tx3">สาขา 3</option>
+                    </select>
+                </td>
+                <td ></td>
+                <td style="width:100px"></td>
+                <td style="width:130px"><p class="ftwo">วัน/เวลาทีรับรถ</p><p class="fstar">*</p></td>
+                <td style="width: 200px; ">
+                    <form action="/action_page.php">
+                     <input type="datetime-local" name="bday" class="form-control ffour " style="width: 100%; height: 35px; ">
+                    </form>
+                </td>
+                @*<td style="width:100px"></td>
+                <td><p class="ftwo">เวลาที่รับรถ </p><p class="fstar">*</p> </td>
+                <td style="width:200px"><input type="text" class="form-control SearchBar ffour" style="width: 85%; float: left; "> <p class="ffour">&ensp;น</p></td>*@
+            </tr>
+        </table><br />
+        <p class="fthree">รายละเอียดอุปกรณ์เสริม</p>
+        <table border="1" style="width: 95%; margin-left: 25px;">
+            <tr>
+                <td style="width:130px"><p class="ftwo">อุปกรณ์เสริม</p><p class="fstar">*</p></td>
+                <td style="width:247px">
+                    <div class="input-group">
+                        <input type="text" class="form-control ffour">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" type="submit">
+                                <i class=" glyphicon glyphicon-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </td>
+                <td></td>
+                <td style="width:100px"></td>
+                <td style="width:144px"><p class="ftwo">ราคาต่อหน่วย</p></td>
+                <td style="width:225px">
+                    <input type="text" id="disabledInput" class="form-control ffour "disabled>
+                </td>
+                <td style="width:70px"></td>
+                <td><p class="ftwo">จำนวน</p></td>
+                <td style="width:200px"><input type="text" id="disabledInput" class="form-control ffour " onkeyup="if(isNaN(this.value)){ alert('กรุณากรอกตัวเลข'); this.value='';}" /> </td>
+            </tr>
+        </table><br />
+
+            <div class="container">
+
+                <button type="button" style="width: 150px; height:45px; float:right;
+                background-color: #A7EFAD; display: inline-block; border: 1px solid #F6FDF9;
+                border-radius: 4px; box-sizing: border-box; font-family: 'Thai Sans Lite';
+                font-size: 25px; color: #666666;">
+                    + เพิ่มรายการ
+                </button>
+            </div>
+            <br />
+
+            <table border="1" style="width: 95%; margin-left: 30px; background-color: #D9D9D9; ">
+                <tr style="background-color: #D9D9D9; border: 1px solid #D9D9D9; text-align:center; ">
+                    <td width="10%"> <p class="ffour">ลำดับที่</p></td>
+                    <td width="45%"> <p class="ffour">รายการ</p></td>
+                    <td width="20%"> <p class="ffour">ราคา/หน่วย</p></td>
+                    <td width="20%"> <p class="ffour">จำนวน</p></td>
+                </tr>
+                <tr style="height: 40px; background-color: #FFFFFF; border: 1px solid #D9D9D9">
+                    <td> <p class="ffour"></p> </td>
+                    <td> <p class="ffour"></p></td>
+                    <td> <p class="ffour"></p></td>
+                    <td>
+                        <form action="/action_page.php" method="get">
+                            <p class="ffour">
+                                <button type="reset" value="Reset" class="btnre">
+                                    <span class="glyphicon glyphicon-remove"></span>
+                                </button>
+                            </p>
+                        </form>
+                        
+                    </td>
+                </tr>
+                <tr style="height: 40px; background-color: #FFFFFF; border: 1px solid #D9D9D9">
+                    <td> <p class="ffour"></p></td>
+                    <td> <p class="ffour"></p></td>
+                    <td> <p class="ffour"></p></td>
+                    <td>
+                        <form action="/action_page.php" method="get">
+                            <p class="ffour">
+                                <button type="reset" value="Reset" class="btnre">
+                                    <span class="glyphicon glyphicon-remove"></span>
+                                </button>
+                            </p>
+                        </form>
+                        
+                    </td>
+                </tr>
+                <tr style="height: 40px; background-color: #FFFFFF; border: 1px solid #D9D9D9">
+                    <td> <p class="ffour"></p></td>
+                    <td> <p class="ffour"></p></td>
+                    <td> <p class="ffour"></p></td>
+                    <td>
+                        <form action="/action_page.php" method="get">
+                            <p class="ffour">
+                                <button type="reset" value="Reset" class="btnre">
+                                    <span class="glyphicon glyphicon-remove"></span>
+                                </button>
+                            </p>
+                        </form>
+                        
+                    </td>
+                </tr>
+                <tr style="height: 40px; background-color: #FFFFFF; border: 1px solid #D9D9D9">
+                    <td> <p class="ffour"></p></td>
+                    <td> <p class="ffour"></p></td>
+                    <td> <p class="ffour"></p></td>
+                    <td>
+                        <form action="/action_page.php" method="get">
+                            <p class="ffour">
+                                <button type="reset" value="Reset" class="btnre">
+                                    <span class="glyphicon glyphicon-remove"></span>
+                                </button>
+                            </p>
+                        </form>
+                        
+                    </td>
+                </tr>
+                <tr style="height: 40px; background-color: #FFFFFF; border: 1px solid #D9D9D9">
+                    <td> <p class="ffour"></p></td>
+                    <td> <p class="ffour"></p></td>
+                    <td> <p class="ffour"></p></td>
+                    <td>
+                        <form action="/action_page.php" method="get">
+                            <p class="ffour">
+                                <button type="reset" value="Reset" class="btnre">
+                                    <span class="glyphicon glyphicon-remove"></span>
+                                </button>
+                            </p>
+                        </form>
+                        
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <br />
+            <table border="0" style="width: 95%; margin-left: 25px; ">
+                <tr>
+                    <td width="70%"><p class="ftwo" style="float:right">ค่าเช่า&ensp;&ensp;</p></td>
+                    <td width="20%px"><input type="text" id="Price" class="form-control "></td>
+                    <td width="5%"><p class="ftwo" style="float:right">บาท&ensp;&ensp;</p></td>
+                </tr>
+                <tr>
+                    <td width="70%"><p class="ftwo" style="float:right">มัดจำ&ensp;&ensp;</p></td>
+                    <td width="20%px"><input type="text" id="Price" class="form-control " onkeyup="if(isNaN(this.value)){ alert('กรุณากรอกตัวเลข'); this.value='';}" /> </td>
+                    <td width="5%"><p class="ftwo" style="float:right">บาท&ensp;&ensp;</p></td>
+                </tr>
+                <tr>
+                    <td width="70%"><p class="ftwo" style="float:right">อุปกรณ์เสริม&ensp;&ensp;</p></td>
+                    <td width="20%px"><input type="text" id="Price" class="form-control "></td>
+                    <td width="5%"><p class="ftwo" style="float:right">บาท&ensp;&ensp;</p></td>
+                </tr>
+                <tr>
+                    <td width="70%"><p class="ftwo" style="float:right">ภาษีมูลค่าเพิ่ม 7%&ensp;&ensp;</p></td>
+                    <td width="20%px"><input type="text" id="Price" class="form-control "></td>
+                    <td width="5%"><p class="ftwo" style="float:right">บาท&ensp;&ensp;</p></td>
+                </tr>
+                <tr>
+                    <td width="70%"><p class="ftwo" style="float:right">ยอดรวมสุทธิ&ensp;&ensp;</p></td>
+                    <td width="20%px"><input type="text" id="Price" class="form-control "></td>
+                    <td width="5%"><p class="ftwo" style="float:right">บาท&ensp;&ensp;</p></td>
+                </tr>
+            </table>
+            <br />
+       
+        </div>
+    
+    
+    
 
 </body>
+</html>
+
+
+
+
 
 
 

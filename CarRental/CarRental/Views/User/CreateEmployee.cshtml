@@ -1,0 +1,183 @@
+﻿@{
+    ViewBag.Title = "CreateEmployee";
+    Layout = "~/Views/Shared/_LayoutCreate.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>PR</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        .ftwo {
+            font-size: 20px;
+            font-family: 'Thai Sans Lite';
+            padding-left: 20px;
+            padding-top: 10px;
+            float: left;
+            color: #666666;
+        }
+
+        .fthree {
+            font-size: 25px;
+            font-family: 'Thai Sans Lite';
+            padding-left: 20px;
+            padding-top: 10px;
+            margin-top: 5px;
+            color: #666666;
+        }
+        /*หัวข้อ*/
+
+        .ffour {
+            font-size: 20px;
+            font-family: 'Thai Sans Lite';
+            color: #666666;
+        }
+        /*ตัวอักษรในtextbox*/
+
+        .ffive {
+            font-size: 18px;
+            font-family: 'Thai Sans Lite';
+            padding-bottom: 2px;
+            color: #666666;
+        }
+        /*ตัวอักษรใน dropdown*/
+
+        .fstar {
+            font-size: 20px;
+            font-family: 'Thai Sans Lite';
+            color: red;
+        }
+
+
+        .two {
+            border: 1px solid #EFEFEF;
+            padding: 15px 0px 15px 15px;
+            background-color: #EFEFEF;
+            padding-left: 20px;
+            margin-bottom: 10px;
+        }
+
+        .three {
+            border: 2px solid #EEEEEE;
+            background-color: #F6FDF9;
+            margin: 0px 10px 10px 10px;
+            padding: 20px 10px 10px 10px;
+        }
+
+
+        .btnre {
+            background-color: #F86166;
+            border: 1px solid #FFFFFF;
+            color: white;
+            float: right;
+        }
+        .button {
+            border-radius: 5px;
+            border: 1px solid #cccccc;
+            padding-left: 10px;
+            color: #666666;
+        }
+    </style>
+
+    <script language="javascript">
+        function checkID(id) {
+            if (id.length != 13) return false;
+            for (i = 0, sum = 0; i < 12; i++)
+                sum += parseFloat(id.charAt(i)) * (13 - i); if ((11 - sum % 11) % 10 != parseFloat(id.charAt(12)))
+                    return false; return true;
+        }
+
+        function checkForm() {
+            if (!checkID(document.form1.textID.value))
+                alert('รหัสประชาชนไม่ถูกต้อง');
+            else alert('รหัสประชาชนถูกต้อง เชิญผ่านได้');
+        }
+    </script>
+
+   
+       <script>
+           $(document).ready(function () {
+               $("#textID").keypress(function (e) {
+                   //if the letter is not digit then display error and don't type anything
+                   //if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) 
+                   if ((e.which != 46 || $(this).val().indexOf('.') != -1) && (e.which < 48 || e.which > 57)) {
+                       //display error message
+                       $("#errmsg").html("Digits Only").show().fadeOut("slow");
+                       return false;
+                   }
+               });
+           });
+       </script>
+        
+</head>
+   <body>
+       @*<div class="two"><br />
+                </div>*@
+                <div class="three" style="margin-top:10px">
+                    <table border="1" align="center" style="width:50%; " >
+                        <tr>
+                            <td><p class="ftwo">รหัสพนักงาน</p></td>
+                            <td colspan="3"></td>
+                            <td style="width:400px">
+                                <form name="form">
+                                    <input type="text" pattern="" id="txtID1" class="form-control ffour " style="float:left; width:70%" disabled>&ensp;
+                                    @*<input type="submit" value="ตรวจสอบ" class="button ffour" style="width:100px;color:white;background-color:#6889BB">*@
+                                </form>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><p class="ftwo">ชื่อพนักงาน</p></td>
+                            <td></td>
+                            <td style="width:100px">
+                                <select id="Prefix"  class="form-control ffive" name="Prefix" style="width: 100%; height: 35px;" >
+                                    <option value="tx1">นาง</option>
+                                    <option value="tx2">นาย</option>
+                                    <option value="tx2">นางสาว</option>
+                                </select>
+                            </td>
+                            <td style="width:30px"></td>
+                            <td ><input  type="text" id="disabledInput" class="form-control ffour " style="width:70%" ></td>
+
+                        </tr>
+                       
+                        <tr>
+                            <td><p class="ftwo">เลขบัตรประชาชน</p></td>
+                            <td colspan="3"></td>
+                            <td style="width:400px">
+                                <form name="form1" onsubmit="checkForm(); return false;">
+                                    <input type="text" id="textID" maxlength="13"  class="form-control ffour " style="float:left; width:70%">&ensp;
+                                    <input type="submit" value="ตรวจสอบ" class="button ffour" style="width:100px;color:white;background-color:#6889BB">
+                                </form>
+                            </td>
+                        </tr>
+                        <tr>
+                             <td><p class="ftwo">แผนก</p></td>
+                             <td colspan="3"></td>
+                             <td @*style="width:100px"*@>
+                                <select id="Prefix" class="form-control ffive" name="Prefix" style="width: 70%; height: 35px;">
+                                    <option value="tx1">Marketting</option>
+                                 </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><p class="ftwo">ตำแหน่ง</p></td>
+                            <td colspan="3"></td>
+                            <td @*style="width:100px"*@>
+                                <select id="Prefix" class="form-control ffive" name="Prefix" style="width: 70%; height: 35px;">
+                                    <option value="tx1">Sale co</option>
+                                </select>
+                            </td>
+                        </tr>
+                </table>
+                <br />
+
+                    
+
+</div>
+</body>
+</html>
