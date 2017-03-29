@@ -1,5 +1,9 @@
 ﻿<!DOCTYPE html>
+
 <html>
+
+
+
 <head>
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -11,6 +15,9 @@
     <link rel="stylesheet" href="/resources/demos/style.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.css">
+
+    <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.5/js/jquery.dataTables.js"></script>
     <title>@ViewBag.Title</title>
     <script>
         $(document).ready(function () {
@@ -111,15 +118,17 @@
             position: relative;
         }
         .body {
-            width: 76%;
+            width: 100%;
             border: 1px solid #D9D9D9;
-            text-align: center;
+            background-color: #F6FDF9;
+            font-size: 20px;
+            color: #333333;
         }
         .container {
             margin-left: 21%;
             background-color: #FBFBFB;
             font-family: 'Thai Sans Lite';
-            width: 100%;
+            width: 76%;
             padding-top: 25px;
         }
         .vertical-menu {
@@ -234,8 +243,9 @@
         </ul>
     </div>
     <div class="container">
-
-        @RenderBody()
+        <div class="body">
+            @RenderBody()
+        </div>
     </div>
     <br><br>
     <footer>&nbsp;</footer>

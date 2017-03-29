@@ -13,6 +13,187 @@
         });
     });
 </script>
-<div class="header">
 
+
+
+<style>
+    .header {
+        text-align: left;
+        font-size: 28px;
+        background-color: #6FE2B4;
+        color: #666666;
+    }
+        .header i {
+            padding: 10px;
+            font-size: 40px;
+            color: #FFFFFF;
+            display: block;
+        }
+    #btnAdd {
+        font-size: 22px;
+        background-color: #A7EFAD;
+        width: 132px;
+        float: right;
+        display: block;
+        margin: 25px;
+        border: 0px;
+    }
+    #btnAdd:hover {
+        background-color: #A7EFAD;
+    }
+    .btnSearch {
+        width: 20%;
+        text-align: center;
+        float: right;
+        height: 40px;
+        background-color: #D6D7DB;
+        border: 0px;
+        font-size: 30px;
+    }
+    .btnPrint {
+        width: 40%;
+        text-align: center;
+        height: 40px;
+        background-color: #F6FDF9;
+        border: 0px;
+        font-size: 25px;
+        color: #2762AB;
+    }
+    .btnEdit {
+        width: 40%;
+        text-align: center;
+        height: 40px;
+        background-color: #F6FDF9;
+        border: 0px;
+        font-size: 25px;
+        color: #2762AB;
+    }
+    .search {
+        width: 100%;
+    }
+    .searchTable {
+        width: 100%;
+    }
+        .searchTable td {
+            text-align: center;
+            color: #333333;
+            border: 1px solid #C8C8C8;
+            font-size: 20px;
+            padding: 10px;
+        }
+        .searchTable th {
+            border: 1px solid #C8C8C8;
+            border-bottom: 1px dashed #000000;
+            text-align: center;
+            color: #333333;
+            font-size: 20px;
+            padding: 10px;
+        }
+    .dropdownType {
+        background-color: #D6D7DB;
+        width: 100%;
+        height: 40px;
+        font-size: 20px;
+        text-align: center;
+        border: 0px;
+    }
+</style>
+<div class="body">
+    <div class="header">
+        <table style="text-align:center; padding: 25px;" border="0">
+            <tr>
+                <td><i class="material-icons">description</i></td>
+                <td>สมุดรายชื่อ</td>
+            </tr>
+        </table>
+    </div>
+    <button id="btnAdd" class="btn btn-default">+ สร้างใหม่</button><br><br><br><br>
+    <div class="search">
+        <table class="searchTable" id="tableSearch" align="center" border="1">
+            <thead>
+                <tr style="background-color: #CCCCCC;">
+                    <th width="27.5%">ชื่อลูกค้า / ผู้จำหน่าย</th>
+                    <th width="27.5%">ชื่อผู้ติดต่อ</th>
+                    <th width="10%">ประเภท</th>
+                    <th width="20%">รหัสลูกค้า</th>
+                    <th width="15%">ดูข้อมูล / แก้ไข</th>
+                </tr>
+            </thead>
+                <tr style="background-color: #D6D7DB;">
+                    <td style="text-align: left; padding: 0px; border: 1px dashed #000000;">
+                        <input type="text" id="txtName" placeholder=" ชื่อลูกค้า / ผู้จำหน่าย"
+                               style="width: 80%; background-color: #D6D7DB; border: 0px; height: 40px; padding: 8px;">
+                        <button class="btnSearch"><i class="material-icons">search</i></button>
+                    </td>
+                    <td style="text-align: left; padding: 0px; border: 1px dashed #000000;">
+                        <input type="text" id="txtName" placeholder=" ชื่อผู้ติดต่อ"
+                               style="width: 80%; background-color: #D6D7DB; border: 0px; height: 40px; padding: 8px;">
+                        <button class="btnSearch"><i class="material-icons">search</i></button>
+                    </td>
+                    <td style="text-align: left; padding: 0px;">
+                        <select class="dropdownType">
+                            <option>ทั้งหมด</option>
+                            <option>ผู้จำหน่าย</option>
+                            <option>ลูกค้า</option>
+                        </select>
+                    </td>
+                    <td style="text-align: left; padding: 0px; border: 1px dashed #000000;">
+                        <input type="text" id="txtName" placeholder=" รหัสลูกค้า"
+                               style="width: 80%; background-color: #D6D7DB; border:0px; height: 40px; padding: 8px;">
+                        <button class="btnSearch"><i class="material-icons">search</i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>
+                        <button class="btnPrint"><i class="material-icons" style="font-size: 30px;">print</i></button>
+                        <button class="btnEdit"><i class="material-icons" style="font-size: 30px;">create</i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>
+                        <button class="btnPrint"><i class="material-icons" style="font-size: 30px;">print</i></button>
+                        <button class="btnEdit"><i class="material-icons" style="font-size: 30px;">create</i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>
+                        <button class="btnPrint"><i class="material-icons" style="font-size: 30px;">print</i></button>
+                        <button class="btnEdit"><i class="material-icons" style="font-size: 30px;">create</i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>
+                        <button class="btnPrint"><i class="material-icons" style="font-size: 30px;">print</i></button>
+                        <button class="btnEdit"><i class="material-icons" style="font-size: 30px;">create</i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>
+                        <button class="btnPrint"><i class="material-icons" style="font-size: 30px;">print</i></button>
+                        <button class="btnEdit"><i class="material-icons" style="font-size: 30px;">create</i></button>
+                    </td>
+                </tr>
+</table>
+        <br><br><br>
+    </div>
 </div>
